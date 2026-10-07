@@ -1,7 +1,6 @@
 text	x	y	font_size	font_color	font_weight	angle	border_width
 Cellobiose	5910	-330	17	#000000	normal	0	0
 Glycolysis	5780	-1000	17	#000000	normal	-90	1
-TCA Cycle	5890	-1690	17	#000000	normal	0	1
 Isocitrate	6740	-1560	17	#000000	normal	0	0
 Pyruvate	6150	-1180	17	#000000	normal	-15	0
 Ala	6280	-1255	17	#000000	normal	0	0
