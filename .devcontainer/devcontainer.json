@@ -4,9 +4,9 @@
         "dockerfile": "Dockerfile",
         "context": ".."
     },
-    "mounts": [
-        "source=/home/jason/URI/TLC2/S2026_Pfu_23BDO/live_figure/data,target=/app/data,type=bind,consistency=cached"
-    ],
+    "features": {
+        "ghcr.io/devcontainers/features/git-lfs:1": {}
+    },
     "customizations": {
         "vscode": {
             "extensions": [

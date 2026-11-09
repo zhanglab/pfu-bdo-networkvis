@@ -8,6 +8,7 @@ import re
 from collections import defaultdict
 import pickle
 import os
+from pathlib import Path
 
 # =============== UTILITY FUNCTIONS ====================
 
@@ -162,14 +163,17 @@ COLORSCALE = [
 
 # =============== LOAD STATIC DATA ====================
 
+# Data lives next to this file (./data). Override with the DATA_DIR env var.
+DATA_DIR = Path(os.environ.get("DATA_DIR", Path(__file__).resolve().parent / "data"))
+
 def load_network_data():
     """Load and process all network data."""
     
     # Load graph
-    G = nx.read_graphml("/app/data/GRAPH.graphml")
+    G = nx.read_graphml(DATA_DIR / "GRAPH.graphml")
     
     # Load node positions
-    node_table = pd.read_csv("/app/data/NODE_POSITIONS.csv", index_col=0)
+    node_table = pd.read_csv(DATA_DIR / "NODE_POSITIONS.csv", index_col=0)
     node_table.index = node_table.index.astype("str")
     
     # Set node positions (flip y-axis for plotting)
@@ -181,11 +185,11 @@ def load_network_data():
             pos[node] = (node_table.loc[node, 'x'], -node_table.loc[node, 'y'])
     
     # Load flux data
-    with open('/app/data/samples_dict.pkl', 'rb') as f:
+    with open(DATA_DIR / "samples_dict.pkl", 'rb') as f:
         samples = pickle.load(f)
     
     # Load labels
-    labels = load_labels_from_file('/app/data/labels.tsv')
+    labels = load_labels_from_file(DATA_DIR / "labels.tsv")
     
     return G, pos, samples, labels
 
