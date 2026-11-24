@@ -136,16 +136,16 @@ IGNORE_WIDTH = ["SerK", "R00582"]
 
 # Strain mappings
 STRAIN_DISPLAY_TO_INTERNAL = {
-    'BDO-ALS': 'MW698',
-    'BDO': 'MW697',
-    'Parent-ALS': 'MW268',
-    'Parent-COM': 'COM1c'
+    'ADH-ALS': 'MW698',
+    'ADH': 'MW697',
+    'Parent-ADH-ALS': 'MW268',
+    'Parent-ADH': 'COM1c'
 }
 
 STRAIN_INTERNAL_TO_DISPLAY = {v: k for k, v in STRAIN_DISPLAY_TO_INTERNAL.items()}
 
 # Strains with metabolomics data
-STRAINS_WITH_METABOLOMICS = ['MW698', 'COM1c']  # BDO-ALS and Parent-COM
+STRAINS_WITH_METABOLOMICS = ['MW698', 'COM1c']  # ADH-ALS and Parent-ADH
 
 # Normalization options
 NORMALIZE_OPTIONS = {
@@ -321,7 +321,7 @@ def process_nodes(G, group1_internal, group2_internal):
                        group2_internal in STRAINS_WITH_METABOLOMICS)
     
     # Determine if we need to invert the fold changes
-    # Original data is BDO-ALS vs Parent-COM (MW698 vs COM1c)
+    # Original data is ADH-ALS vs Parent-ADH (MW698 vs COM1c)
     # If comparison is reversed, invert the fold changes
     invert_fc = False
     same_group = False
@@ -330,7 +330,7 @@ def process_nodes(G, group1_internal, group2_internal):
         if group1_internal == group2_internal:
             same_group = True
         elif group1_internal == 'COM1c' and group2_internal == 'MW698':
-            # Parent-COM vs BDO-ALS (reversed from original)
+            # Parent-ADH vs ADH-ALS (reversed from original)
             invert_fc = True
     
     def flip_significance(sig):
@@ -703,7 +703,7 @@ app.layout = html.Div([
             dcc.Dropdown(
                 id='group1-dropdown',
                 options=[{'label': k, 'value': k} for k in STRAIN_DISPLAY_TO_INTERNAL.keys()],
-                value='BDO-ALS',
+                value='ADH-ALS',
                 clearable=False,
                 style={'width': '200px'}
             )
@@ -714,7 +714,7 @@ app.layout = html.Div([
             dcc.Dropdown(
                 id='group2-dropdown',
                 options=[{'label': k, 'value': k} for k in STRAIN_DISPLAY_TO_INTERNAL.keys()],
-                value='Parent-COM',
+                value='Parent-ADH',
                 clearable=False,
                 style={'width': '200px'}
             )

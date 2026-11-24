@@ -12,7 +12,7 @@ Interactive network visualization accompanying the publication on engineered
 * Vailionis, Jason L., Hailey C. O’Quinn, Katherine S. Holandez-Lopez, Meghana Faltane, Tania N. N. Tanwee, Kathryne C. Ford, Farris L. Poole, Katherine B. Louie, Benjamin P. Bowen, Robert M. Kelly, Michael W. W. Adams, and Ying Zhang. 2026. "Targeted and untargeted metabolomics with absolute quantification of intracellular metabolites in the hyperthermophilic archaeon Pyrococcus furiosus during 2,3-butanediol production". (Submitted to MRA)
 
 ## Running the Live App Locally
-The version above only supports the default view: BDO-ALS vs Parent-COM, no normalization. To explore other strain comparisons and normalization schemes, launch the full Dash app via Docker:
+The version above only supports the default view: ADH-ALS vs Parent-ADH, no normalization. To explore other strain comparisons and normalization schemes, launch the full Dash app via Docker:
 
 ```bash
 docker pull jvjvjvjv/pfu-bdo-networkvis

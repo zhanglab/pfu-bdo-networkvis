@@ -1,7 +1,7 @@
 from app import create_figure
 
-# Render the default view: BDO-ALS vs Parent-COM, no normalization
-fig = create_figure('BDO-ALS', 'Parent-COM', 'None')
+# Render the default view: ADH-ALS vs Parent-ADH, no normalization
+fig = create_figure('ADH-ALS', 'Parent-ADH', 'None')
 
 fig.write_html(
     'index.html',
